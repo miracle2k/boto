@@ -697,7 +697,7 @@ class Key(object):
         if encrypt_key:
             headers[provider.server_side_encryption_header] = 'AES256'
         headers = boto.utils.merge_meta(headers, self.metadata, provider)
-
+        headers = {}
         return self.bucket.connection.generate_url(expires_in, method,
                                                    self.bucket.name, self.name,
                                                    headers, query_auth,
